@@ -29,6 +29,8 @@ namespace TimeTaskDns
 
         private static string _fileMd5 = "";
 
+        private static int runTime = 60;
+
         private static readonly List<string> _optionsSafeDns = new List<string>() {
             "【One Dns】117.50.11.11:52.80.66.66",
             "【One Dns】117.50.11.11:117.50.22.22"
@@ -84,48 +86,55 @@ namespace TimeTaskDns
                 using (StreamReader stramRead = new StreamReader(_optionFile))
                 {
                     string line = "";
-                    Regex regex = new Regex(@"((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}");
+                    Regex regexIp = new Regex(@"((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})(\.((2(5[0-5]|[0-4]\d))|[0-1]?\d{1,2})){3}");
+                    Regex regextime = new Regex(@"([1-9]d*.?d*)| (0.d* [1-9])");
                     while ((line = stramRead.ReadLine()) != null)
                     {
-                        if (line.Contains("setDns")&&regex.IsMatch(line))
+                        if (line.Contains("runTime") && regextime.IsMatch(line))
                         {
-                            var ip = regex.Match(line);
+                            var run = int.TryParse(regextime.Match(line).Value,out var time)?time:60;
+                            runTime = run;
+                            continue;
+                        }
+                        if (line.Contains("setDns")&& regexIp.IsMatch(line))
+                        {
+                            var ip = regexIp.Match(line);
                             if (!_optionszdyDns.Contains($"{ip.Value}:{ip.NextMatch()}")) {
                                 _optionszdyDns.Add($"{ip.Value}:{ip.NextMatch()}");
                             }
                             _dnsOption = dnsMode.zdy;
-                            break;
+                            continue;
                         }
                         if (line.Contains("dnsMode=Radom"))
                         {
                             _dnsOption = dnsMode.Radom;
-                            break;
+                            continue;
                         }
                         else if (line.Contains("dnsMode=Safe"))
                         {
                             _dnsOption = dnsMode.Safe;
-                            break;
+                            continue;
                         }
                         else if (line.Contains("dnsMode=Pue"))
                         {
                             _dnsOption = dnsMode.Pue;
-                            break;
+                            continue;
                         }
                         else if (line.Contains("dnsMode=Home"))
                         {
                             _dnsOption = dnsMode.Home;
-                            break;
+                            continue;
                         }
                         else if (line.Contains("dnsMode=tx"))
                         {
                             _dnsOption = dnsMode.tx;
-                            break;
+                            continue;
                         }
 
                     }
                 }
                 DnsSpeed();
-                Task.Delay(TimeSpan.FromMinutes(60)).Wait();
+                Thread.Sleep(TimeSpan.FromMinutes(runTime));
                 
             }
         
@@ -187,7 +196,6 @@ namespace TimeTaskDns
 
         public static void DnsSpeed()
         {
-
 
             Dictionary<string, long> dnsDic = new Dictionary<string, long>();
 
@@ -333,6 +341,7 @@ namespace TimeTaskDns
                 FileStream file = new FileStream(@"D:\first.txt", FileMode.Create);
                 streamWriter.WriteLine($"DNS自动测速服务配置文件\n\n格式为：主Dns:副Dns\n\n\n");
                 streamWriter.WriteLine($"-------------------DNS配置区------------------\n");
+                streamWriter.WriteLine($"runTime=60//默认为60分钟 单位为分钟");
                 streamWriter.WriteLine($"setDns=auto //auto代表自动  指定的Dns格式为 格式为：主Dns:副Dns");
                 streamWriter.WriteLine($"dnsMode=Radom //Safe 拦截模式  Pue 纯净模式 Home 家庭模式 Radom 自动模式 tx 腾讯游戏Dns\n\n\n");
 

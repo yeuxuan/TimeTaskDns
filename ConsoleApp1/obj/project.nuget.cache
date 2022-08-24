@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "4A4AWzyGRK17S54EorsuevDMUXIXutJ7pz+2hrHO7dqIfj7VlJTzydq94MoGWIKbNHMSqvJTRrMBBWGciRX6sw==",
+  "success": true,
+  "projectFilePath": "D:\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.ganweisoft.net'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

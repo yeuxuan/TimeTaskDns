@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\LIUQIANG\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\29828.LAPTOP-NCHPB28F\\.nuget\\packages\\": {},
+    "D:\\VS共享\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "D:\\工作区\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "D:\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\LIUQIANG\\.nuget\\packages\\",
-      "outputPath": "D:\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\obj\\",
+      "projectPath": "D:\\工作区\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\ConsoleApp1.csproj",
+      "packagesPath": "C:\\Users\\29828.LAPTOP-NCHPB28F\\.nuget\\packages\\",
+      "outputPath": "D:\\工作区\\新建文件夹 (3)\\TimeTaskDns\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\VS共享\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LIUQIANG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\29828.LAPTOP-NCHPB28F\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -34,7 +34,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "D:\\GWGSInfo\\src\\packages": {},
         "http://nuget.ganweisoft.net": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -69,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

@@ -16,9 +16,9 @@ using System.Threading.Tasks;
 
 namespace TimeTaskDns
 {
-    public partial class Service1 : ServiceBase
+    public partial class DNService : ServiceBase
     {
-        public Service1()
+        public DNService()
         {
             InitializeComponent();
         }
@@ -50,8 +50,10 @@ namespace TimeTaskDns
               "【Alibaba】223.5.5.5:223.6.6.6 ",
               "【Baidu】180.76.76.76:114.114.114.114",
               "【Cloudflare】1.1.1.1:1.0.0.1",
-              "【CNNIC DNS】1.2.4.8:210.2.4.8"
-        };
+              "【CNNIC DNS】1.2.4.8:210.2.4.8",
+			  "【Goole】8.8.8.8:8.8.8.4",
+			  "【BAIDU】180.76.76.76:114.114.114.114"
+		};
         private static readonly List<string> _optionstxDns = new List<string>() {
             "【Tx Dns】119.29.29.29:182.254.116.116"
         };
@@ -67,10 +69,10 @@ namespace TimeTaskDns
         }
         protected override void OnStart(string[] args)
         {
-            Task.Run(() => {
+            Task.Factory.StartNew(() => {
                 MainDns();
-            });
-        }
+            },TaskCreationOptions.LongRunning)
+;        }
 
         private static void MainDns() {
 

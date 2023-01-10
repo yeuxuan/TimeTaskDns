@@ -1,6 +1,6 @@
 ﻿namespace TimeTaskDns
 {
-    partial class Service1
+    partial class DNService
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.ServiceName = "Service1";
+			// 
+			// DNService
+			// 
+			this.ServiceName = "DNService";
+
         }
 
         #endregion
